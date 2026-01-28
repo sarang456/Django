@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+</head>
+<body>
+    <h2>Libarary Name:{{Lib_name}}</h2>
+    <h2>Library Address:{{Lib_Address}}</h2>
+    <h2>Libary ContactNo:{{Lib_mob}}</h2>
+    <h2>Libary Fees:{{Lib_Fees}}</h2>
+    <h2>
+        Rooms:
+        {% for i in Lib_room %}
+            <h3>{{i}}</h3>
+        {% endfor %}
+    </h2>
+    <h2>
+        {% if Lib_Fees == 1000 %}
+            <h3>It's Ac Room</h3>
+        {% elif Lib_Fees == 700 %}
+            <h3>It's Simple Room</h3>
+        {% else %}
+            <h3>Fees are not match please check fees again!</h3>
+        {% endif %}
+    </h2>
+</body>
+</html>

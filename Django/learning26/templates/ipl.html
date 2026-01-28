@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Ipl Team page</h1>
+    <h2>Team Name:{{teamName}}</h2>
+    <h2>Captain Name:{{cap}}</h2>
+    <h2>Players:
+        {% for i in playerli %}
+            <h3>{{i}}</h3>
+        {% endfor %}
+    </h2>
+    <h2>
+        If team has won Trophy thats successful and if not won any Trophy that team keep progressing
+        {% if trophy > 0 %}
+            <h3>successful</h3>
+        {% else %}
+            <h3>Keep Progressing</h3>
+        {% endif %}
+    </h2>
+</body>
+</html>

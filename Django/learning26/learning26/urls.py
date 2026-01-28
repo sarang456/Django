@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from learning26 import views
+# from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,5 +27,8 @@ urlpatterns = [
     path('movies/', views.movies),
     path('news/', views.news),
     path('shows/', views.shows),
-    path('main/', views.main)
+    path('main/', views.main),
+    path('recipe/', views.recipe),
+    path('team/', views.team),
+    path('lib/', views.library)
 ]
