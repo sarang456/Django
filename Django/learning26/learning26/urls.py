@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from learning26 import views
+from django.urls import include
 # from . import views
 
 urlpatterns = [
@@ -30,5 +31,7 @@ urlpatterns = [
     path('main/', views.main),
     path('recipe/', views.recipe),
     path('team/', views.team),
-    path('lib/', views.library)
+    path('lib/', views.library),
+    # here we include the student application url link
+    path('student/', include('student.urls'))
 ]
