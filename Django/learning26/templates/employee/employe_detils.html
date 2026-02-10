@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employ_Details</title>
+</head>
+<body>
+    {%for emp in employe%}
+        <p>Employ Name:{{emp.Emp_Name}}</p>
+        <p>Employ Salary:{{emp.Emp_Salary}}</p>
+        <p>Employ Joing Date:{{emp.Emp_Joining_Date}}</p>
+        <p>Employ age:{{emp.Emp_Age}}</p>
+        <p>Employ Post:{{emp.Emp_Post}}</p>
+        <br>
+    {%endfor%}
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Salary</th>
+                <th>Joing Date</th>
+                <th>age</th>
+                <th>Post</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for emp in employe %}
+                <tr>
+                    <td>{{emp.id}}</td>
+                    <td>{{emp.Emp_Name}}</td>
+                    <td>{{emp.Emp_Salary}}</td>
+                    <td>{{emp.Emp_Joining_Date}}</td>
+                    <td>{{emp.Emp_Age}}</td>
+                    <td>{{emp.Emp_Post}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

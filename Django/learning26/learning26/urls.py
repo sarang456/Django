@@ -33,5 +33,7 @@ urlpatterns = [
     path('team/', views.team),
     path('lib/', views.library),
     # here we include the student application url link
-    path('student/', include('student.urls'))
+    path('student/', include('student.urls')),
+    # here we include the employee application url link
+    path('employee/', include('Employee.urls'))
 ]
