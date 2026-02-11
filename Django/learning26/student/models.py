@@ -21,6 +21,7 @@ class product(models.Model):
     
     class meta:
         db_table = "product"
+        
 class internship(models.Model):
     company_name = models.CharField(max_length=50)
     internship_role = models.CharField(max_length=50)

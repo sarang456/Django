@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponse
 from django.db.models import Q
 from .models import employee
+from .forms import Emp_form, Course_form, product_form, vehicle_form
 
 # Create your views here.
 def empdetails(request):
@@ -46,3 +47,43 @@ def employeeFilter(request):
     # print("Query16:", emp16)
     # print("Query17:", emp17)
     return render(request, "employee/employ_filter.html")
+
+def createEmploye(request):
+    emp = employee.objects.create(Emp_Name = "Anand",   Emp_Salary = 60000, Emp_Age = 24, Emp_Post = "Vatenary_Doctor")
+    return HttpResponse("Employe Created...")
+
+def Emp_Form(request):
+    if request.method == "POST":
+        form = Emp_form(request.POST)
+        form.save()
+        return HttpResponse("Employe Created Successfully...")
+    else:
+        form = Emp_form()
+        return render(request, "employee/Emp_Form.html", {"form" : form})
+    
+def course(request):
+    if request.method == "POST":
+        course_form_views_return = Course_form(request.POST)
+        course_form_views_return.save()
+        return HttpResponse("Course Added Successfully!")
+    else:
+        course_form_views = Course_form()
+        return render(request, "employee/course.html", {'form' : course_form_views}) 
+    
+def product(request):
+    if request.method == "POST":
+        form = product_form(request.POST)
+        form.save()
+        return HttpResponse("Product added Successfully!")
+    else:
+        form = product_form()
+        return render(request, "employee/product.html", {"form" : form})
+ 
+def vehicle(request):
+    if request.method == "POST":
+        form = vehicle_form(request.POST)
+        form.save()
+        return HttpResponse("Vehicle added successfully!")
+    else:
+        form = vehicle_form
+        return render(request, "employee/vehicle.html", {"form" : form})
