@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, redirect
 from django.db.models import Q
 from .models import employee
 from .forms import Emp_form, Course_form, product_form, vehicle_form
@@ -56,7 +56,7 @@ def Emp_Form(request):
     if request.method == "POST":
         form = Emp_form(request.POST)
         form.save()
-        return HttpResponse("Employe Created Successfully...")
+        return redirect("empdetail")
     else:
         form = Emp_form()
         return render(request, "employee/Emp_Form.html", {"form" : form})
@@ -86,4 +86,21 @@ def vehicle(request):
         return HttpResponse("Vehicle added successfully!")
     else:
         form = vehicle_form
-        return render(request, "employee/vehicle.html", {"form" : form})
+        return render(request, "employee/vehicle.html", {"form" : form})\
+        
+def delete_Emp(request, id):
+    # print("Id from url=", id)
+    employee.objects.filter(id=id).delete()
+    return redirect("empdetail")
+
+def filter_Emp_Age(request):
+    employe = employee.objects.filter(Emp_Age__gt = 25).values()
+    return render(request, "employee/employe_detils.html", {"employe" : employe})
+
+def assending(request):
+    employe = employee.objects.order_by("Emp_Salary")
+    return render(request, "employee/employe_detils.html", {"employe" : employe})
+
+def disending(request):
+    employe = employee.objects.order_by("-Emp_Salary")
+    return render(request, "employee/employe_detils.html", {"employe" : employe})

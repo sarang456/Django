@@ -7,6 +7,7 @@
 </head>
 <body>
     <h1>Employ_Registration:</h1>
+    <a href="{%url 'empdetail'%}">Employ_List</a>
     <form method="POST">
         {% csrf_token %}
         {{form}}

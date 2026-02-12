@@ -6,15 +6,17 @@
     <title>Employ_Details</title>
 </head>
 <body>
-    {%for emp in employe%}
+    <!-- {%for emp in employe%}
         <p>Employ Name:{{emp.Emp_Name}}</p>
         <p>Employ Salary:{{emp.Emp_Salary}}</p>
         <p>Employ Joing Date:{{emp.Emp_Joining_Date}}</p>
         <p>Employ age:{{emp.Emp_Age}}</p>
         <p>Employ Post:{{emp.Emp_Post}}</p>
         <br>
-    {%endfor%}
-
+    {%endfor%} -->
+    <h1><u>Employ Details</u></h1>
+    <a href="{%url 'asen_order'%}">Assending</a>
+    <a href="{%url 'dsen_order'%}">Dessending</a>
     <table border="1">
         <thead>
             <tr>
@@ -24,6 +26,10 @@
                 <th>Joing Date</th>
                 <th>age</th>
                 <th>Post</th>
+                <th>Create</th>
+                <th>Delete</th>
+                <th>Filter</th>
+                
             </tr>
         </thead>
         <tbody>
@@ -35,6 +41,9 @@
                     <td>{{emp.Emp_Joining_Date}}</td>
                     <td>{{emp.Emp_Age}}</td>
                     <td>{{emp.Emp_Post}}</td>
+                    <td><a href="{%url 'createemploye'%}">Create</a></td>
+                    <td><a href="{%url 'Delete_Emp' emp.id %}">Delete</a></td>
+                    <td><a href="{%url 'emp_filter'%}">Filter</a></td>
                 </tr>
             {% endfor %}
         </tbody>
