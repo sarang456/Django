@@ -5,7 +5,7 @@ from .forms import Emp_form, Course_form, product_form, vehicle_form
 
 # Create your views here.
 def empdetails(request):
-    employe = employee.objects.all().values()
+    employe = employee.objects.all().order_by("id").values()
     # for emp in employe:
     
     return render(request, "employee/employe_detils.html", {"employe": employe})
@@ -104,3 +104,13 @@ def assending(request):
 def disending(request):
     employe = employee.objects.order_by("-Emp_Salary")
     return render(request, "employee/employe_detils.html", {"employe" : employe})
+
+def update_employe(request, id):
+    employe = employee.objects.get(id=id)
+    if request.method == "POST":
+        form = Emp_form(request.POST, instance=employe)
+        form.save()
+        return redirect("empdetail")
+    else:
+        form = Emp_form(instance=employe)
+        return render(request, "employee/update_employe.html", {"form" : form})

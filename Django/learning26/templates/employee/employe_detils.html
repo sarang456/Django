@@ -4,6 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Employ_Details</title>
+    <style>
+        body{
+            background-color: #232323;
+            color: white;
+        }
+        .outeran{
+            width: 100%;
+            height: 2rem;
+            background-color: #121212;
+            margin-bottom: 30px;
+            padding-left: 7px;
+        }
+        table{
+            width: 70rem;
+            height: 30rem;
+            text-align: center;
+            margin-left: 50px;
+        }
+        a{
+            text-decoration: none;
+            border-radius: 3px;
+            color: white;
+        }
+        .outer{
+            margin: 10px;
+            font-size: 1.25rem;
+        }
+        a:hover{
+            box-shadow: 2px 2px 5px #FFFFF0;
+        }
+    </style>
 </head>
 <body>
     <!-- {%for emp in employe%}
@@ -15,8 +46,12 @@
         <br>
     {%endfor%} -->
     <h1><u>Employ Details</u></h1>
-    <a href="{%url 'asen_order'%}">Assending</a>
-    <a href="{%url 'dsen_order'%}">Dessending</a>
+    <div class="outeran">
+        <a href="{%url 'createemploye'%}" class="outer">Create</a>
+        <a href="{%url 'asen_order'%}" class="outer">Assending</a>
+        <a href="{%url 'dsen_order'%}" class="outer">Dessending</a>
+        <a href="{%url 'emp_filter'%}" class="outer">Filter</a>
+    </div>
     <table border="1">
         <thead>
             <tr>
@@ -26,10 +61,7 @@
                 <th>Joing Date</th>
                 <th>age</th>
                 <th>Post</th>
-                <th>Create</th>
-                <th>Delete</th>
-                <th>Filter</th>
-                
+                <th colspan="3">Action</th>                
             </tr>
         </thead>
         <tbody>
@@ -41,9 +73,8 @@
                     <td>{{emp.Emp_Joining_Date}}</td>
                     <td>{{emp.Emp_Age}}</td>
                     <td>{{emp.Emp_Post}}</td>
-                    <td><a href="{%url 'createemploye'%}">Create</a></td>
+                    <td><a href="{% url 'updateemp' emp.id%}">Update</a></td>
                     <td><a href="{%url 'Delete_Emp' emp.id %}">Delete</a></td>
-                    <td><a href="{%url 'emp_filter'%}">Filter</a></td>
                 </tr>
             {% endfor %}
         </tbody>

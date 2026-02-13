@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>service_list</title>
+</head>
+<body>
+    <a href="{%url 'create' %}">Add Service</a>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Service_name</th>
+                <th>Service_description</th>
+                <th>Service_price</th>
+                <th>Service_duration</th>
+                <th>Service_status</th>
+                <th>Created_at</th>
+                <th>Updated_at</th>
+                <th colspan="2">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for li in list %}
+                <tr>
+                    <td>{{li.id}}</td>
+                    <td>{{li.service_name}}</td>
+                    <td>{{li.service_description}}</td>
+                    <td>{{li.service_price}}</td>
+                    <td>{{li.service_duration}}</td>
+                    <td>{{li.service_status}}</td>
+                    <td>{{li.created_at}}</td>
+                    <td>{{li.updated_at}}</td>
+                    <td><a href="{%url 'update' li.id %}">Update</a></td>
+                    <td><a href="{%url 'delete' li.id %}">Delete</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

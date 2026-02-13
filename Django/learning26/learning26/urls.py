@@ -35,5 +35,6 @@ urlpatterns = [
     # here we include the student application url link
     path('student/', include('student.urls')),
     # here we include the employee application url link
-    path('employee/', include('Employee.urls'))
+    path('employee/', include('Employee.urls')),
+    path('services/', include('services.urls'))
 ]
