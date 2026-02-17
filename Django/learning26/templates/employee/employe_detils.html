@@ -1,3 +1,5 @@
+{% extends 'base.html' %}
+{% block content %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Employ_Details</title>
     <style>
-        body{
+        /* body{
             background-color: #232323;
             color: white;
         }
@@ -21,19 +23,13 @@
             height: 30rem;
             text-align: center;
             margin-left: 50px;
-        }
-        a{
-            text-decoration: none;
-            border-radius: 3px;
-            color: white;
-        }
-        .outer{
+        } */
+        
+        /* .outer{
             margin: 10px;
             font-size: 1.25rem;
-        }
-        a:hover{
-            box-shadow: 2px 2px 5px #FFFFF0;
-        }
+        }  */
+        
     </style>
 </head>
 <body>
@@ -46,12 +42,12 @@
         <br>
     {%endfor%} -->
     <h1><u>Employ Details</u></h1>
-    <div class="outeran">
+    <!-- <div class="outeran">
         <a href="{%url 'createemploye'%}" class="outer">Create</a>
         <a href="{%url 'asen_order'%}" class="outer">Assending</a>
         <a href="{%url 'dsen_order'%}" class="outer">Dessending</a>
         <a href="{%url 'emp_filter'%}" class="outer">Filter</a>
-    </div>
+    </div> -->
     <table border="1">
         <thead>
             <tr>
@@ -81,3 +77,4 @@
     </table>
 </body>
 </html>
+{% endblock content %}
