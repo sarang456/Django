@@ -14,18 +14,35 @@ body{
     color: #fff;
     padding: 10px;
     text-align: center;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     display: flex;
     gap: 20px;
+    border-radius: 15px;
+    margin-top: 5px;
+}
+
+.logo {
+    margin-right: 65rem;
+    margin-left: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.logo-img{
+    height: 50px;
+    width: 50px;
+    opacity: 0.7;
 }
 
 .logo a {
     text-decoration: none;
     font-size: 20px;
-    font-weight: bold;
+    font-weight: bolder;
     color: rgba(255, 255, 255, 0.7);
     background-color: #232323;
+    margin-top: 12px;
+    margin-left: 5px;
 }
 
 .nav-links {
@@ -61,31 +78,50 @@ body{
     border-collapse: collapse;
     margin-top: 20px;
     background-color: #232323;
-    color: #ffff;
+    /* color: #ffff; */
 }
 
 .content table th {
     border: 1px solid #ccc;
     padding: 8px;
-    text-align: left;
+    text-align: center;
     background-color: #121212;
 }
 
 .content table td {
     border: 1px solid #ccc;
     padding: 8px;
-    text-align: left;
+    text-align: center;
 }
 
 .content table a{
     text-decoration: none;
     color: rgba(255, 255, 255, 0.7);
-    transition: 0.3s ease;
+    
 }
 
-a:hover{
+.nav-links a:hover{
     color: rgba(255, 255, 255, 1);
     font-weight: bolder;
+    text-decoration: underline white;
+    transition: 0.2s ease-in;
+}
+
+.content table td a:hover{
+    color: rgba(255, 255, 255, 1);
+    /* font-weight: bolder; */
+    text-decoration: underline white;
+    transition: 0.1s ease-in;
+}
+
+.logo a:hover{
+    color: rgba(255, 255, 255, 1);
+    font-weight: bolder;
+    text-decoration: none;
+}
+
+.logo-img:hover{
+    opacity: 1;
 }
 
 .footer {
@@ -97,10 +133,6 @@ a:hover{
     align-items: center;
     display: flex;
     gap: 20px;
+    border-radius: 12px;
+    margin-top: 5px;
 }
-
-
-
-
-
-        
