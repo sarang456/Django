@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<form method="post">
+    {% csrf_token %}
+    {{form.service_name | as_crispy_field}}
+    {{form.service_discount | as_crispy_field}}
+    {{form.category_id | as_crispy_field}}
+    {{form.service_price | as_crispy_field}}
+    {{form.service_status | as_crispy_field}}
+    {{form.service_description | as_crispy_field}}
+    <input type="submit" value="submit">
+</form>
+<br>
+<br>
+<!-- {% for field in form %}
+{{ field.label }}
+{% if not forloop.last %}
+, 
+{% endif %}
+{% if field.errors %}
+<div style="color: red;">
+    {{ field.errors }}
+</div>
+{% endif %}
+{% endfor %} -->
+
+{% endblock content %}

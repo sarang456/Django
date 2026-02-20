@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from .forms import Service_form
+from .models import service
 
 def studenthome(request):
     return render(request,'student/studenthome.html')
@@ -30,3 +32,38 @@ def useful(request):
         "Website3":"gtu.ac.in",
     }
     return render(request, 'student/useful.html', link)
+
+def service_list(request):
+    services = service.objects.all()
+    return render(request, "student/service_list.html", {"services" : services})
+
+def service_create(request):
+    if request.method == "POST":
+        form = Service_form(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("student:list")
+        else:
+            return render(request, "student/service_create.html", {"form" : form})    
+    else:
+        form = Service_form()
+        return render(request, "student/service_create.html", {"form" : form})
+    
+
+def service_update(request, id):
+    serv = service.objects.get(id=id)
+    form = Service_form(request.POST, instance=serv)
+    if request.method == "POST":
+        if form.is_valid():
+            form.save()
+            return redirect("student:list")
+        else:
+            return render(request, "student/service_create.html", {"form" : form})
+    else:
+        form = Service_form(instance=serv)
+        return render(request, "student/service_create.html", {"form" : form})
+    
+
+def service_delete(request, id):
+    service.objects.filter(id=id).delete()
+    return redirect("student:list")

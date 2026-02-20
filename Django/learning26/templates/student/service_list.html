@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<div class="services-grid">
+
+{% for service in services  %}
+    <div class="service-card">
+    <div class="card-image">
+        {% if service.service_name == "Washing_Machine"%}
+            <img src="{% static 'images/ac_repair.png' %}" alt="Washing Service">
+        {% elif service.service_name == "AC_Reparing" %}
+            <img src="{% static 'images/wm_repair.png' %}" alt="AC_Reparing">
+        {% endif %}
+    </div>
+    <div class="card-content">
+      <span class="service-category">{{service.category_id.category_name}}</span>
+      <h3 class="service-title">{{service.service_name}}</h3>
+      <p class="service-description">{{service.service_description}}</p>
+      <div class="card-actions">
+        <a href="{% url 'student:update' service.id %}" class="btn update-btn">Update</a>
+        <a href="{% url 'student:delete' service.id %}" class="btn delete-btn" onclick="return confirm('Are you sure you want to delete {{service.service_name}} service?');">Delete</a>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+
+    
+  </div>
+  {% endblock content %}
